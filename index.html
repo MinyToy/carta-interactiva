@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una carta</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, #f6f1eb, #e9dfd2);
+    font-family: 'Montserrat', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ================= SECCIONES ================= */
+.section {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1.5s ease;
+}
+
+.section.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ================= INTRO ================= */
+#intro h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    color: #2b2b2b;
+    text-align: center;
+    animation: fadeIn 2.5s ease forwards;
+}
+
+/* ================= CARTA ================= */
+.carta {
+    max-width: 900px;
+    background: rgba(255,255,255,0.88);
+    padding: 60px 50px;
+    border-radius: 22px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    animation: fadeIn 2s ease forwards;
+}
+
+.carta p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #3a3a3a;
+    margin-bottom: 25px;
+}
+
+.boton {
+    display: block;
+    margin: 40px auto 0;
+    padding: 12px 30px;
+    font-size: 0.95rem;
+    border: none;
+    border-radius: 30px;
+    background: #2b2b2b;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.boton:hover {
+    background: #000;
+    transform: scale(1.05);
+}
+
+/* ================= FINAL ================= */
+h2 {
+    font-family: 'Playfair Display', serif;
+    text-align: center;
+    font-size: 2.3rem;
+    margin-bottom: 40px;
+    color: #2b2b2b;
+}
+
+.polaroids {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 45px;
+}
+
+.polaroid {
+    background: #fff;
+    padding: 15px 15px 35px;
+    border-radius: 6px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.2);
+    transform: rotate(var(--rot));
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.polaroid:hover {
+    transform: scale(1.08) rotate(0deg);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.35);
+}
+
+.foto {
+    height: 170px;
+    border: 2px dashed #c7c7c7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ================= PIE ================= */
+.pie {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #4a4a4a;
+    font-style: italic;
+}
+
+.mensaje {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    text-align: center;
+    color: #3a3a3a;
+    animation: fadeIn 2.5s ease forwards;
+}
+
+/* ================= ANIMACIONES ================= */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animación tipo revelado Polaroid */
+.revelar {
+    animation: revelarFoto 4s ease forwards;
+}
+
+@keyframes revelarFoto {
+    0% {
+        filter: brightness(0) contrast(0.8);
+        clip-path: inset(100% 0 0 0);
+    }
+    40% {
+        filter: brightness(0.4) contrast(0.9);
+        clip-path: inset(60% 0 0 0);
+    }
+    70% {
+        filter: brightness(0.7) contrast(1);
+        clip-path: inset(20% 0 0 0);
+    }
+    100% {
+        filter: brightness(1) contrast(1);
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 600px) {
+    #intro h1 { font-size: 2.3rem; }
+    h2 { font-size: 1.9rem; }
+    .mensaje { font-size: 1.6rem; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= SECCIÓN 1 ================= -->
+<div id="intro" class="section active">
+    <h1>Una carta sin fotografías… aún</h1>
+</div>
+
+<!-- ================= SECCIÓN 2 ================= -->
+<div id="texto" class="section">
+    <div class="carta">
+        <p>Marlen,</p>
+
+        <p>
+            Apenas ha pasado menos de un mes desde que coincidimos y, aun así,
+            hablar contigo se siente cercano, natural y genuino. Hay conversaciones
+            contigo que traen calma, y eso no es algo común.
+        </p>
+
+        <p>
+            Yo estoy en Monterrey, y sé que tú estás haciendo todo lo posible por llegar.
+            Lo valoro más de lo que quizá imaginas. Pensar en compartir espacio,
+            rutinas y silencios es algo que me nace con honestidad.
+        </p>
+
+        <p>
+            Me encantaría tenerte a mi lado y construir algo bonito juntos,
+            pero siempre con respeto. Todo a tu ritmo, al paso que tú marques,
+            cuando tú lo decidas y de la forma en la que te sientas segura.
+        </p>
+
+        <p>
+            No es una promesa apresurada ni una presión. Es solo una intención sincera:
+            caminar contigo, si tú así lo quieres.
+        </p>
+
+        <button class="boton" onclick="mostrarFinal()">Continuar</button>
+    </div>
+</div>
+
+<!-- ================= SECCIÓN 3 ================= -->
+<div id="final" class="section">
+    <div class="carta">
+        <h2>Una historia que aún no tiene fotos</h2>
+
+        <div class="polaroids">
+            <div class="polaroid" style="--rot:-4deg">
+                <div class="foto" id="foto1"></div>
+                <div class="pie">Un primer recuerdo</div>
+            </div>
+
+            <div class="polaroid" style="--rot:3deg">
+                <div class="foto"></div>
+                <div class="pie">Una risa compartida</div>
+            </div>
+
+            <div class="polaroid" style="--rot:-2deg">
+                <div class="foto"></div>
+                <div class="pie">Un día cualquiera juntos</div>
+            </div>
+
+            <div class="polaroid" style="--rot:4deg">
+                <div class="foto"></div>
+                <div class="pie">Un futuro por crear</div>
+            </div>
+        </div>
+
+        <div class="mensaje">Quiero hacer una historia a tu lado</div>
+    </div>
+</div>
+
+<script>
+/* Transición automática intro → carta */
+setTimeout(() => {
+    document.getElementById('intro').classList.remove('active');
+    document.getElementById('texto').classList.add('active');
+}, 5000);
+
+/* Botón carta → final */
+function mostrarFinal() {
+    document.getElementById('texto').classList.remove('active');
+    document.getElementById('final').classList.add('active');
+
+    /* Revelar foto al entrar a la sección final */
+    establecerImagen('foto1', 'imagen1.jpeg');
+}
+
+/* ================= CONFIGURACIÓN PRIVADA ================= */
+function establecerImagen(id, ruta) {
+    const contenedor = document.getElementById(id);
+    if (!contenedor) return;
+
+    const img = document.createElement('img');
+    img.src = ruta;
+    img.style.width = '100%';
+    img.style.height = '100%';
+    img.style.objectFit = 'contain';
+    img.style.backgroundColor = '#ffffff';
+
+    img.onload = () => {
+        img.classList.add('revelar');
+    };
+
+    contenedor.appendChild(img);
+}
+</script>
+
+</body>
+</html>
+
+
